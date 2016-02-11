@@ -28,6 +28,9 @@ class AtomDesktopWindowTreeHostWin : public views::DesktopWindowTreeHostWin {
   bool PreHandleMSG(
       UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) override;
 
+  bool PostHandleMSG(
+      UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) override;
+
  private:
   MessageHandlerDelegate* delegate_;  // weak ref
 

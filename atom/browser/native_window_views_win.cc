@@ -106,6 +106,15 @@ bool NativeWindowViews::PreHandleMSG(
   }
 }
 
+bool NativeWindowViews::PostHandleMSG(
+    UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) {
+  NotifyWindowMessage(message, w_param, l_param);
+
+  switch (message) {
+    default:
+      return false;
+  }
+}
 void NativeWindowViews::HandleSizeEvent(WPARAM w_param, LPARAM l_param) {
   // Here we handle the WM_SIZE event in order to figure out what is the current
   // window state and notify the user accordingly.
