@@ -17,6 +17,8 @@
 #if defined(OS_WIN)
 #include "atom/browser/ui/win/message_handler_delegate.h"
 #include "atom/browser/ui/win/taskbar_host.h"
+
+#include <uxtheme.h>
 #endif
 
 namespace views {

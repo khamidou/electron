@@ -83,6 +83,9 @@ bool NativeWindowViews::PreHandleMSG(
     UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) {
   NotifyWindowMessage(message, w_param, l_param);
 
+  BOOL bResult = FALSE;
+  GESTUREINFO gi;
+
   switch (message) {
     case WM_COMMAND:
       // Handle thumbar button click message.
@@ -99,6 +102,26 @@ bool NativeWindowViews::PreHandleMSG(
       if (!movable_)
         ::GetWindowRect(GetAcceleratedWidget(), (LPRECT)l_param);
       return false;
+    }
+
+    case WM_GESTURE: {
+        ZeroMemory(&gi, sizeof(GESTUREINFO));
+        gi.cbSize = sizeof(GESTUREINFO);
+        bResult = GetGestureInfo((HGESTUREINFO)lParam, &gi);
+
+        switch (gi.dwID){
+            case GID_BEGIN:
+                NotifyWindowScrollTouchBegin();
+                CloseGestureInfoHandle((HGESTUREINFO)lParam);
+                break;
+
+            case GID_END:
+                NotifyWindowScrollTouchEnd();
+                CloseGestureInfoHandle((HGESTUREINFO)lParam);
+                break;
+        }
+
+        return false;
     }
 
     default:
