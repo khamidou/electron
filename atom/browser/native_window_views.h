@@ -146,6 +146,9 @@ class NativeWindowViews : public NativeWindow,
   bool PreHandleMSG(
       UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) override;
 
+  bool PostHandleMSG(
+      UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) override;
+
   void HandleSizeEvent(WPARAM w_param, LPARAM l_param);
 #endif
 
