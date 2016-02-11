@@ -109,6 +109,8 @@ bool NativeWindowViews::PreHandleMSG(
 bool NativeWindowViews::PostHandleMSG(
     UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) {
   switch (message) {
+    case WM_SIZE:
+      return false;
     default:
       return false;
   }
