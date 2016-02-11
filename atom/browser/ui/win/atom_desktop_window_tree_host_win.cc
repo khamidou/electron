@@ -25,7 +25,7 @@ bool AtomDesktopWindowTreeHostWin::PreHandleMSG(
   return delegate_->PreHandleMSG(message, w_param, l_param, result);
 }
 
-bool PostHandleMSG(
+bool AtomDesktopWindowTreeHostWin::PostHandleMSG(
       UINT message, WPARAM w_param, LPARAM l_param, LRESULT* result) {
   return delegate_->PostHandleMSG(message, w_param, l_param, result);
 }
