@@ -4,6 +4,7 @@
 
 #include "atom/browser/native_window_views.h"
 #include "content/public/browser/browser_accessibility_state.h"
+#include <stdio.h>
 
 namespace atom {
 
@@ -86,6 +87,7 @@ bool NativeWindowViews::PreHandleMSG(
   BOOL bResult = FALSE;
   GESTUREINFO gi;
 
+  puts("Karim debugs stuff");
   switch (message) {
     case WM_COMMAND:
       // Handle thumbar button click message.
