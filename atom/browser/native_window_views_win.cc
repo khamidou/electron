@@ -106,11 +106,13 @@ bool NativeWindowViews::PreHandleMSG(
     }
 
     case WM_POINTERDOWN: {
+        puts("Pointer down");
         NotifyWindowScrollTouchBegin();
         return false;
     }
 
     case WM_POINTERUP: {
+        puts("Pointer up");
         NotifyWindowScrollTouchEnd();
         return false;
     }
