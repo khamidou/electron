@@ -87,7 +87,6 @@ bool NativeWindowViews::PreHandleMSG(
   BOOL bResult = FALSE;
   GESTUREINFO gi;
 
-  puts("Karim debugs stuff");
   switch (message) {
     case WM_COMMAND:
       // Handle thumbar button click message.
@@ -103,6 +102,7 @@ bool NativeWindowViews::PreHandleMSG(
     case WM_MOVING: {
       if (!movable_)
         ::GetWindowRect(GetAcceleratedWidget(), (LPRECT)l_param);
+      puts("Moving");
       return false;
     }
 
