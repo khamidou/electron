@@ -105,6 +105,7 @@ bool NativeWindowViews::PreHandleMSG(
       return false;
     }
 
+    /*
     case WM_POINTERDOWN: {
         puts("Pointer down");
         NotifyWindowScrollTouchBegin();
@@ -116,6 +117,7 @@ bool NativeWindowViews::PreHandleMSG(
         NotifyWindowScrollTouchEnd();
         return false;
     }
+    */
 
     default:
       return false;
