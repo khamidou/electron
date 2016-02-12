@@ -106,23 +106,13 @@ bool NativeWindowViews::PreHandleMSG(
       return false;
     }
 
-    case WM_GESTURE: {
-        ZeroMemory(&gi, sizeof(GESTUREINFO));
-        gi.cbSize = sizeof(GESTUREINFO);
-        bResult = GetGestureInfo((HGESTUREINFO)l_param, &gi);
+    case WM_POINTERDOWN: {
+        NotifyWindowScrollTouchBegin();
+        return false;
+    }
 
-        switch (gi.dwID){
-            case GID_BEGIN:
-                NotifyWindowScrollTouchBegin();
-                CloseGestureInfoHandle((HGESTUREINFO)l_param);
-                break;
-
-            case GID_END:
-                NotifyWindowScrollTouchEnd();
-                CloseGestureInfoHandle((HGESTUREINFO)l_param);
-                break;
-        }
-
+    case WM_POINTERUP: {
+        NotifyWindowScrollTouchEnd();
         return false;
     }
 
