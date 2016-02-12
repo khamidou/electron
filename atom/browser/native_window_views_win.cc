@@ -85,7 +85,6 @@ bool NativeWindowViews::PreHandleMSG(
   NotifyWindowMessage(message, w_param, l_param);
 
   BOOL bResult = FALSE;
-  GESTUREINFO gi;
 
   switch (message) {
     case WM_COMMAND:
