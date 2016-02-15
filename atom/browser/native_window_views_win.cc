@@ -86,6 +86,10 @@ bool NativeWindowViews::PreHandleMSG(
 
   BOOL bResult = FALSE;
 
+  if(!IsMouseInPointerEnabled()) {
+    EnableMouseInPointer(true);
+  }
+
   switch (message) {
     case WM_COMMAND:
       // Handle thumbar button click message.
@@ -105,7 +109,6 @@ bool NativeWindowViews::PreHandleMSG(
       return false;
     }
 
-    /*
     case WM_POINTERDOWN: {
         puts("Pointer down");
         NotifyWindowScrollTouchBegin();
@@ -117,7 +120,6 @@ bool NativeWindowViews::PreHandleMSG(
         NotifyWindowScrollTouchEnd();
         return false;
     }
-    */
 
     default:
       return false;
