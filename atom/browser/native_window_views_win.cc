@@ -121,6 +121,11 @@ bool NativeWindowViews::PreHandleMSG(
         return false;
     }
 
+    case WM_TOUCH: {
+        MessageBox(GetAcceleratedWidget(), L"Yo got WM touch", L"L'Error", MB_OK);
+        return false;
+    }
+
     default:
       return false;
   }

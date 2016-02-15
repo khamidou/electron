@@ -256,6 +256,9 @@ NativeWindowViews::NativeWindowViews(
     ::SetWindowLong(GetAcceleratedWidget(), GWL_EXSTYLE, ex_style);
   }
 
+  RegisterTouchWindow(GetAcceleratedWidget(), 0);
+
+
 #endif
 
   // TODO(zcbenz): This was used to force using native frame on Windows 2003, we
