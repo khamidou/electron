@@ -99,6 +99,7 @@ bool NativeWindowViews::PreHandleMSG(
 
     case WM_SIZE:
       // Handle window state change.
+      puts("Size!");
       HandleSizeEvent(w_param, l_param);
       return false;
 
