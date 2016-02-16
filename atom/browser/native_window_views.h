@@ -14,6 +14,8 @@
 #include "ui/views/widget/widget_delegate.h"
 #include "ui/views/widget/widget_observer.h"
 
+#include "ui/events/event.h"
+
 #if defined(OS_WIN)
 #include "atom/browser/ui/win/message_handler_delegate.h"
 #include "atom/browser/ui/win/taskbar_host.h"
@@ -112,6 +114,8 @@ class NativeWindowViews : public NativeWindow,
   TaskbarHost& taskbar_host() { return taskbar_host_; }
 #endif
 
+  // Overridden from ui::EventHandler:
+  void OnGestureEvent(ui::GestureEvent* event) override;
  private:
   // views::WidgetObserver:
   void OnWidgetActivationChanged(
