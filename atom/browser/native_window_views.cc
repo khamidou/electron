@@ -971,6 +971,7 @@ void NativeWindowViews::OnGestureEvent(ui::GestureEvent* event) {
 
 bool NativeWindowViews::OnKeyPressed(const ui::KeyEvent& event) {
   puts("ONKEYPRESSED !");
+  return true;
 }
 
 bool NativeWindowViews::AcceleratorPressed(const ui::Accelerator& accelerator) {
