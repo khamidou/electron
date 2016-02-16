@@ -256,9 +256,6 @@ NativeWindowViews::NativeWindowViews(
     ::SetWindowLong(GetAcceleratedWidget(), GWL_EXSTYLE, ex_style);
   }
 
-  RegisterTouchWindow(GetAcceleratedWidget(), 0);
-
-
 #endif
 
   // TODO(zcbenz): This was used to force using native frame on Windows 2003, we
@@ -959,12 +956,17 @@ void NativeWindowViews::HandleKeyboardEvent(
   }
 }
 
+
 gfx::Size NativeWindowViews::GetMinimumSize() {
   return NativeWindow::GetMinimumSize();
 }
 
 gfx::Size NativeWindowViews::GetMaximumSize() {
   return NativeWindow::GetMaximumSize();
+}
+
+void NativeWindowViews::OnGestureEvent(GestureEvent* event) {
+  puts("Got gesture event");
 }
 
 bool NativeWindowViews::AcceleratorPressed(const ui::Accelerator& accelerator) {
