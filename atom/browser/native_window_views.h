@@ -116,6 +116,7 @@ class NativeWindowViews : public NativeWindow,
 
   // Overridden from ui::EventHandler:
   void OnGestureEvent(ui::GestureEvent* event) override;
+  bool OnKeyPressed(const ui::KeyEvent& event) override;
  private:
   // views::WidgetObserver:
   void OnWidgetActivationChanged(
