@@ -965,7 +965,7 @@ gfx::Size NativeWindowViews::GetMaximumSize() {
   return NativeWindow::GetMaximumSize();
 }
 
-void NativeWindowViews::OnGestureEvent(GestureEvent* event) {
+void NativeWindowViews::OnGestureEvent(ui::GestureEvent* event) {
   puts("Got gesture event");
 }
 
